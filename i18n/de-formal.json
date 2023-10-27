@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
+	"bs-interwikisearch-desc": "Suchen Sie in anderen Wiki's",
 	"bs-interwikisearch-results-title-label": "Erste Seite der Ergebnisse auf \"$1\" anzeigen. Um alle Ergebnisse anzuzeigen klicken Sie bitte auf \"Volle suche öffnen\"",
 	"bs-interwikisearch-login-suggestion": "Wahrscheinlich müssen Sie sich auf \"$1\" anmelden, um die Suchergebnisse sehen zu können. Wenn dies der Fall ist, werden Sie nach der Anmeldung von hier \"$1\" suchen können",
 	"bs-interwikisearch-redirect-suggestion": "Für weitere Informationen besuchen Sie direkt das Ziel-Wiki, indem Sie auf den Button unten klicken"
