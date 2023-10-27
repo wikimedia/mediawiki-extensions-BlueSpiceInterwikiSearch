@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": []
 	},
-	"bs-interwikisearch-label": "Ergebnisse aus anderen Wiki's",
+	"bs-interwikisearch-desc": "In anderen Wikis suchen",
+	"bs-interwikisearch-label": "Ergebnisse aus anderen Wikis",
 	"bs-interwikisearch-item-button-label": "$1 ($2)",
 	"bs-interwikisearch-results-dialog-title": "Ergebnisse",
 	"bs-interwikisearch-results-dialog-button-go-full": "Volle Suche öffnen",
