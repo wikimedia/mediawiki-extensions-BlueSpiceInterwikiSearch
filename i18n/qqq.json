@@ -1,4 +1,7 @@
 {
+	"@metadata": {
+		"authors": []
+	},
 	"bs-interwikisearch-label": "Label for the interwiki search panel",
 	"bs-interwikisearch-item-button-label": "Label message for the results from other wikis.\n$1 - wiki name, $2 - number of hits",
 	"bs-interwikisearch-results-dialog-title": "Title for the dialog containing results from other wikis",

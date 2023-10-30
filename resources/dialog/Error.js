@@ -1,5 +1,5 @@
-( function( mw, $, bs, d, undefined ){
-	bs.interwiki.search.ErrorDialog = function( cfg ) {
+( function ( mw, $, bs, d, undefined ) {
+	bs.interwiki.search.ErrorDialog = function ( cfg ) {
 		cfg = cfg || {};
 
 		bs.interwiki.search.ErrorDialog.super.call( this, cfg );
@@ -38,7 +38,7 @@
 				mw.message( 'bs-interwikisearch-redirect-suggestion' ).text()
 		} ).$element );
 		if ( this.suggestLogin ) {
-
+			// empty
 		}
 		var goToTargetButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'bs-interwikisearch-error-go-to-target', this.name ).text(),
@@ -47,8 +47,8 @@
 				'progressive'
 			]
 		} );
-		goToTargetButton.connect( this,  {
-			click: function() {
+		goToTargetButton.connect( this, {
+			click: function () {
 				window.open( this.targetURL, '_blank' );
 			}
 		} );
@@ -63,9 +63,9 @@
 
 	bs.interwiki.search.ErrorDialog.prototype.getErrorMessage = function () {
 		return this.error !== false ?
-			mw.message( "bs-interwikisearch-error-generic-with-message", this.name, this.error ).text() :
-			mw.message( "bs-interwikisearch-error-generic", this.name ).text();
+			mw.message( 'bs-interwikisearch-error-generic-with-message', this.name, this.error ).text() :
+			mw.message( 'bs-interwikisearch-error-generic', this.name ).text();
 
 	};
 
-} )( mediaWiki, jQuery, blueSpice, document );
+}( mediaWiki, jQuery, blueSpice, document ) );

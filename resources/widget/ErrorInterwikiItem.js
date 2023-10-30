@@ -1,7 +1,7 @@
-( function( mw, $, bs, d, undefined ){
-	bs.util.registerNamespace( "bs.interwiki.search" );
+( function ( mw, $, bs, d, undefined ) {
+	bs.util.registerNamespace( 'bs.interwiki.search' );
 
-	bs.interwiki.search.ErrorInterwikiItemWidget = function( cfg ) {
+	bs.interwiki.search.ErrorInterwikiItemWidget = function ( cfg ) {
 		cfg = cfg || {};
 
 		this.name = cfg.name || '';
@@ -20,29 +20,29 @@
 
 	OO.inheritClass( bs.interwiki.search.ErrorInterwikiItemWidget, OO.ui.ButtonWidget );
 
-	bs.interwiki.search.ErrorInterwikiItemWidget.prototype.setUpAction = function() {
+	bs.interwiki.search.ErrorInterwikiItemWidget.prototype.setUpAction = function () {
 		this.setIcon( 'alert' );
 		this.setLabel( this.name );
 
 		this.connect( this, {
-			click: function() {
+			click: function () {
 				var errorDialog = new bs.interwiki.search.ErrorDialog( {
-					size: 'medium',
-					name: this.name,
-					suggestLogin: this.shouldSuggestLogin(),
-					targetURL: this.fullURL.replace( '$1', this.query)
-				} );
+						size: 'medium',
+						name: this.name,
+						suggestLogin: this.shouldSuggestLogin(),
+						targetURL: this.fullURL.replace( '$1', this.query )
+					} ),
 
-				var windowManager = OO.ui.getWindowManager();
+					windowManager = OO.ui.getWindowManager();
 				windowManager.addWindows( [ errorDialog ] );
 				windowManager.openWindow( errorDialog );
 			}
 		} );
 	};
 
-	bs.interwiki.search.ErrorInterwikiItemWidget.prototype.shouldSuggestLogin = function() {
+	bs.interwiki.search.ErrorInterwikiItemWidget.prototype.shouldSuggestLogin = function () {
 		// Only this error can be resolved by logging in.
 		// It is not certain that it will resolve it, but its likely
 		return this.errorCode === 'readapidenied';
 	};
-} )( mediaWiki, jQuery, blueSpice, document );
+}( mediaWiki, jQuery, blueSpice, document ) );

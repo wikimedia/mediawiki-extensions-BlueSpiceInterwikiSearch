@@ -1,7 +1,7 @@
-( function( mw, $, bs, d, undefined ){
-	bs.util.registerNamespace( "bs.interwiki.search" );
+( function ( mw, $, bs, d, undefined ) {
+	bs.util.registerNamespace( 'bs.interwiki.search' );
 
-	bs.interwiki.search.InterwikiWidget = function( cfg ) {
+	bs.interwiki.search.InterwikiWidget = function ( cfg ) {
 		cfg = cfg || {};
 		this.$element = cfg.$element || $( '<div>' );
 		this.sources = cfg.sources || {};
@@ -19,22 +19,24 @@
 
 	OO.inheritClass( bs.interwiki.search.InterwikiWidget, OO.ui.Widget );
 
-	bs.interwiki.search.InterwikiWidget.prototype.querySources = function( e, queryData, search ) {
+	bs.interwiki.search.InterwikiWidget.prototype.querySources = function ( e, queryData, search ) {
 		this.reset();
 
-		for( var name in this.sources ) {
-			var sourceConfig = this.sources[name];
+		for ( var name in this.sources ) {
+			var sourceConfig = this.sources[ name ];
 			this.executeQuery( sourceConfig, queryData, search );
 		}
 	};
 
-	bs.interwiki.search.InterwikiWidget.prototype.executeQuery = function( config, queryData, search ) {
+	bs.interwiki.search.InterwikiWidget.prototype.executeQuery = function (
+		config, queryData, search
+	) {
 		var request;
 		queryData.format = 'json';
 
-		if ( config.hasOwnProperty( 'public-wiki' ) && config['public-wiki'] === true ) {
+		if ( config.hasOwnProperty( 'public-wiki' ) && config[ 'public-wiki' ] === true ) {
 			request = this.searchPublic( config, queryData, search );
-		} else if ( config.hasOwnProperty( 'same-domain' ) && config['same-domain'] === true ) {
+		} else if ( config.hasOwnProperty( 'same-domain' ) && config[ 'same-domain' ] === true ) {
 			request = this.searchSameDomain( config, queryData, search );
 		} else {
 			request = this.searchProtected( config, queryData, search );
@@ -42,7 +44,7 @@
 
 		request.done( function ( response ) {
 			this.handleResponse( response, config, search, queryData );
-		}.bind( this ) ).fail( function( code, response ) {
+		}.bind( this ) ).fail( function ( code, response ) {
 			if ( response === 'abort' ) {
 				return;
 			}
@@ -55,42 +57,49 @@
 		this.ongoingRequests.push( request );
 	};
 
-	bs.interwiki.search.InterwikiWidget.prototype.searchProtected = function( config, queryData ) {
-		var api = new mw.ForeignApi( config['api-endpoint'] );
+	bs.interwiki.search.InterwikiWidget.prototype.searchProtected = function (
+		config, queryData
+	) {
+		var api = new mw.ForeignApi( config[ 'api-endpoint' ] );
 		return api.get( queryData );
 	};
 
-	bs.interwiki.search.InterwikiWidget.prototype.searchSameDomain = function( config, queryData ) {
-		return $.get( config['api-endpoint'], queryData );
+	bs.interwiki.search.InterwikiWidget.prototype.searchSameDomain = function (
+		config, queryData
+	) {
+		return $.get( config[ 'api-endpoint' ], queryData );
 	};
 
-	bs.interwiki.search.InterwikiWidget.prototype.searchPublic = function( config, queryData ) {
+	bs.interwiki.search.InterwikiWidget.prototype.searchPublic = function ( config, queryData ) {
 		return $.ajax( {
-			url: config['api-endpoint'],
+			url: config[ 'api-endpoint' ],
 			jsonp: 'callback',
 			dataType: 'jsonp',
 			data: queryData
 		} );
 	};
 
-	bs.interwiki.search.InterwikiWidget.prototype.handleResponse = function( response, config, search, queryData ) {
-		if( response.hasOwnProperty( 'error' ) && response.exception === 1 ) {
+	bs.interwiki.search.InterwikiWidget.prototype.handleResponse = function (
+		response, config, search, queryData
+	) {
+		if ( response.hasOwnProperty( 'error' ) && response.exception === 1 ) {
 			return this.handleError( response, config, queryData );
 		}
-		if( response.hasOwnProperty( 'error' ) ) {
+		if ( response.hasOwnProperty( 'error' ) ) {
 			return this.handleError( response, config, queryData );
 		}
-		if( !response.total ) {
+		if ( !response.total ) {
 			return;
 		}
 
 		var item = new bs.interwiki.search.InterwikiItemWidget( {
-			fullURL: config['search-on-wiki-url'],
+			fullURL: config[ 'search-on-wiki-url' ],
 			name: config.name,
 			query: queryData.q,
 			resultsConfig: {
 				caller: search,
 				spellcheck: response.spellcheck,
+				// eslint-disable-next-line camelcase
 				total_approximated: response.total_approximated,
 				total: response.total,
 				results: response.results
@@ -101,12 +110,14 @@
 		this.showInterwikiResults();
 	};
 
-	bs.interwiki.search.InterwikiWidget.prototype.handleError = function( response, config, queryData ) {
+	bs.interwiki.search.InterwikiWidget.prototype.handleError = function (
+		response, config, queryData
+	) {
 		var errorText = '',
 			errorCode = '',
 			// Target-level setting will override the global setting
-			silent =  config.hasOwnProperty( 'silent-on-error' ) ?
-				config['silent-on-error'] : mw.config.get( 'bsgInterwikiSearchSilentOnError' );
+			silent = config.hasOwnProperty( 'silent-on-error' ) ?
+				config[ 'silent-on-error' ] : mw.config.get( 'bsgInterwikiSearchSilentOnError' );
 		if ( silent ) {
 			return;
 		}
@@ -121,7 +132,7 @@
 		var item = new bs.interwiki.search.ErrorInterwikiItemWidget( {
 			errorText: errorText,
 			errorCode: errorCode,
-			fullURL: config['search-on-wiki-url'],
+			fullURL: config[ 'search-on-wiki-url' ],
 			query: queryData.q || '',
 			name: config.name
 		} );
@@ -130,33 +141,31 @@
 		this.showInterwikiResults();
 	};
 
-
-	bs.interwiki.search.InterwikiWidget.prototype.addItem = function( item ) {
+	bs.interwiki.search.InterwikiWidget.prototype.addItem = function ( item ) {
 		this.$itemCnt.append( item.$element );
-		this.itemsAdded ++;
+		this.itemsAdded++;
 	};
 
-	bs.interwiki.search.InterwikiWidget.prototype.reset = function() {
+	bs.interwiki.search.InterwikiWidget.prototype.reset = function () {
 		this.$itemCnt.children().remove();
 		this.$element.hide();
 		this.itemsAdded = 0;
-		for( var i = 0; i < this.ongoingRequests.length; i++ ) {
-			this.ongoingRequests[i].abort();
+		for ( var i = 0; i < this.ongoingRequests.length; i++ ) {
+			this.ongoingRequests[ i ].abort();
 		}
 		this.ongoingRequests = [];
 	};
 
-
-	bs.interwiki.search.InterwikiWidget.prototype.showInterwikiResults = function() {
-		if( this.elementSetupDone === false ) {
+	bs.interwiki.search.InterwikiWidget.prototype.showInterwikiResults = function () {
+		if ( this.elementSetupDone === false ) {
 			this.$element.insertBefore( $( '#bs-es-results' ) );
 			this.elementSetupDone = true;
 		}
 
 		if ( this.itemsAdded > 0 ) {
+			// eslint-disable-next-line no-jquery/no-slide
 			this.$element.slideDown();
 		}
 	};
 
-
-} )( mediaWiki, jQuery, blueSpice, document );
+}( mediaWiki, jQuery, blueSpice, document ) );

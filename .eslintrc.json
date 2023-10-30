@@ -5,7 +5,17 @@
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
+	"globals": {
+		"blueSpice": "readonly",
+		"jQuery": "readonly",
+		"mediaWiki": "readonly"
+	},
 	"rules": {
-		"no-implicit-globals": "off"
+		"no-jquery/no-global-selector": "off",
+		"no-prototype-builtins": "off",
+		"no-shadow-restricted-names": "off",
+		"no-unused-vars": "off",
+		"one-var": "off",
+		"vars-on-top": "off"
 	}
 }

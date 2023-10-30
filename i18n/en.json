@@ -1,4 +1,7 @@
 {
+	"@metadata": {
+		"authors": []
+	},
 	"bs-interwikisearch-label": "Results from other wikis",
 	"bs-interwikisearch-item-button-label": "$1 ($2)",
 	"bs-interwikisearch-results-dialog-title": "Results",

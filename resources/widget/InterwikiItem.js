@@ -1,7 +1,7 @@
-( function( mw, $, bs, d, undefined ){
-	bs.util.registerNamespace( "bs.interwiki.search" );
+( function ( mw, $, bs, d, undefined ) {
+	bs.util.registerNamespace( 'bs.interwiki.search' );
 
-	bs.interwiki.search.InterwikiItemWidget = function( cfg ) {
+	bs.interwiki.search.InterwikiItemWidget = function ( cfg ) {
 		cfg = cfg || {};
 
 		this.name = cfg.name;
@@ -20,24 +20,22 @@
 
 	OO.inheritClass( bs.interwiki.search.InterwikiItemWidget, OO.ui.ButtonWidget );
 
-	bs.interwiki.search.InterwikiItemWidget.prototype.openResults = function() {
-		var windowManager = OO.ui.getWindowManager();
-
-		var dialog = new bs.interwiki.search.ResultsDialog( {
-			fullURL: this.fullURL,
-			name: this.name,
-			resultsConfig: this.resultsConfig,
-			query: this.query,
-			size: 'larger'
-		}, this );
+	bs.interwiki.search.InterwikiItemWidget.prototype.openResults = function () {
+		var windowManager = OO.ui.getWindowManager(),
+			dialog = new bs.interwiki.search.ResultsDialog( {
+				fullURL: this.fullURL,
+				name: this.name,
+				resultsConfig: this.resultsConfig,
+				query: this.query,
+				size: 'larger'
+			}, this );
 
 		windowManager.addWindows( [ dialog ] );
 		windowManager.openWindow( dialog );
 	};
 
-	bs.interwiki.search.InterwikiItemWidget.prototype.getLabelText = function() {
+	bs.interwiki.search.InterwikiItemWidget.prototype.getLabelText = function () {
 		return mw.message( 'bs-interwikisearch-item-button-label', this.name, this.total ).text();
 	};
 
-
-} )( mediaWiki, jQuery, blueSpice, document );
+}( mediaWiki, jQuery, blueSpice, document ) );

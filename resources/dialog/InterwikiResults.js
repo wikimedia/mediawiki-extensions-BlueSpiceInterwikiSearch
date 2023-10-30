@@ -1,5 +1,5 @@
-( function( mw, $, bs, d, undefined ){
-	bs.interwiki.search.ResultsDialog = function( cfg ) {
+( function ( mw, $, bs, d, undefined ) {
+	bs.interwiki.search.ResultsDialog = function ( cfg ) {
 		cfg = cfg || {};
 
 		this.resultsConfig = cfg.resultsConfig;
@@ -30,18 +30,20 @@
 
 	];
 
-	bs.interwiki.search.ResultsDialog.prototype.initialize = function() {
+	bs.interwiki.search.ResultsDialog.prototype.initialize = function () {
 		bs.interwiki.search.ResultsDialog.super.prototype.initialize.call( this );
 
 		var titleLabel = new OO.ui.LabelWidget( {
-			label: mw.message( 'bs-interwikisearch-results-title-label', this.name ).text()
-		} );
-		var $title = $( '<div>' )
-			.addClass( 'bs-interwikisearch-results-title' )
-			.append( titleLabel.$element );
+				label: mw.message( 'bs-interwikisearch-results-title-label', this.name ).text()
+			} ),
+			$title = $( '<div>' )
+				.addClass( 'bs-interwikisearch-results-title' )
+				.append( titleLabel.$element ),
 
-		var disposableConfig = $.extend( {}, this.resultsConfig );
-		disposableConfig.results = this.resultsConfig.caller.applyResultsToStructure( this.resultsConfig.results );
+			disposableConfig = $.extend( {}, this.resultsConfig );
+		disposableConfig.results = this.resultsConfig.caller.applyResultsToStructure(
+			this.resultsConfig.results
+		);
 
 		this.resultsPanel = new bs.extendedSearch.ResultsPanel( $.extend( disposableConfig, {
 			mobile: bs.extendedSearch.utils.isMobile(),
@@ -55,14 +57,14 @@
 	};
 
 	bs.interwiki.search.ResultsDialog.prototype.getBodyHeight = function () {
-		return $(window).height() * 0.75;
+		return $( window ).height() * 0.75;
 	};
 
 	bs.interwiki.search.ResultsDialog.prototype.getActionProcess = function ( action ) {
 		var me = this;
 
-		if( action === 'openFull' ) {
-			return new OO.ui.Process( function() {
+		if ( action === 'openFull' ) {
+			return new OO.ui.Process( function () {
 				var finalURL = me.fullURL.replace( '$1', me.query );
 				window.open( finalURL, '_blank' );
 
@@ -70,6 +72,8 @@
 			} );
 		}
 
-		return bs.interwiki.search.ResultsDialog.super.prototype.getActionProcess.call( this, action );
+		return bs.interwiki.search.ResultsDialog.super.prototype.getActionProcess.call(
+			this, action
+		);
 	};
-} )( mediaWiki, jQuery, blueSpice, document );
+}( mediaWiki, jQuery, blueSpice, document ) );
