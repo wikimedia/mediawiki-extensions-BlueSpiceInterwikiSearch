@@ -2,17 +2,18 @@
 	"@metadata": {
 		"authors": []
 	},
-	"bs-interwikisearch-label": "Ergebnisse aus anderen Wiki's",
+	"bs-interwikisearch-label": "Ergebnisse aus anderen Wikis",
 	"bs-interwikisearch-item-button-label": "$1 ($2)",
 	"bs-interwikisearch-results-dialog-title": "Ergebnisse",
-	"bs-interwikisearch-results-dialog-button-go-full": "Volle Suche öffnen",
-	"bs-interwikisearch-results-dialog-button-close": "Schließen",
+	"bs-interwikisearch-results-dialog-button-go-full": "Volle Suche \u00f6ffnen",
+	"bs-interwikisearch-results-dialog-button-close": "Schlie\u00dfen",
 	"bs-interwikisearch-results-title-label": "Erste Seite der Ergebnisse auf \"$1\" anzeigen. Um alle Ergebnisse anzuzeigen klicke bitte auf {{int:bs-interwikisearch-results-dialog-button-go-full}}",
 	"bs-interwikisearch-pref-searchinotherwikis": "Interwiki-Suche aktivieren",
-	"bs-interwikisearch-error-generic": "Die Ergebnisse von \"$1\" können nicht abgerufen werden",
-	"bs-interwikisearch-error-generic-with-message": "Die Ergebnisse von \"$1\" können nicht abgerufen werden: $2",
-	"bs-interwikisearch-pref-silentonerror": "Wikis überspringen, die nicht erreichbar sind oder aus anderen Gründen keine Ergebnisse liefern können, ohne sie dem Benutzer zu zeigen",
-	"bs-interwikisearch-login-suggestion": "Wahrscheinlich musst du dich auf \"$1\" anmelden, um die Suchergebnisse sehen zu können. Wenn dies der Fall ist, wirst du nach der Anmeldung von hier \"$1\" suchen können",
-	"bs-interwikisearch-redirect-suggestion": "Für weitere Informationen besuche direkt das Ziel-Wiki, indem du auf den Button unten klickst",
-	"bs-interwikisearch-error-go-to-target": "Gehe zu $1"
+	"bs-interwikisearch-error-generic": "Die Ergebnisse von \"$1\" k\u00f6nnen nicht abgerufen werden",
+	"bs-interwikisearch-error-generic-with-message": "Die Ergebnisse von \"$1\" k\u00f6nnen nicht abgerufen werden: $2",
+	"bs-interwikisearch-pref-silentonerror": "Wikis \u00fcberspringen, die nicht erreichbar sind oder aus anderen Gr\u00fcnden keine Ergebnisse liefern k\u00f6nnen, ohne sie dem Benutzer zu zeigen",
+	"bs-interwikisearch-login-suggestion": "Wahrscheinlich musst du dich auf \"$1\" anmelden, um die Suchergebnisse sehen zu k\u00f6nnen. Wenn dies der Fall ist, wirst du nach der Anmeldung von hier \"$1\" suchen k\u00f6nnen",
+	"bs-interwikisearch-redirect-suggestion": "F\u00fcr weitere Informationen besuche direkt das Ziel-Wiki, indem du auf den Button unten klickst",
+	"bs-interwikisearch-error-go-to-target": "Gehe zu $1",
+	"bs-interwikisearch-desc": "In anderen Wikis suchen"
 }

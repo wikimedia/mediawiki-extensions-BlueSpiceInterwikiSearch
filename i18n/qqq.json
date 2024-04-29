@@ -14,5 +14,6 @@
 	"bs-interwikisearch-pref-silentonerror": "Description message for $bsgInterwikiSearchSilentOnError",
 	"bs-interwikisearch-login-suggestion": "Message displayed to the user when error response suggests user must login to see the search results.\n$1 - target name",
 	"bs-interwikisearch-redirect-suggestion": "Message displayed to the user when error response indicates problem will not be solved by logging into the target wiki",
-	"bs-interwikisearch-error-go-to-target": "Label for the button that opens the target search page directly.\n$1 - target name"
+	"bs-interwikisearch-error-go-to-target": "Label for the button that opens the target search page directly.\n$1 - target name",
+	"bs-interwikisearch-desc": "Description of BlueSpiceInterwikiSearch for [[Special:Version]]"
 }

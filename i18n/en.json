@@ -14,5 +14,6 @@
 	"bs-interwikisearch-pref-silentonerror": "Skip over wikis that cannot be accessed or otherwise cannot return results without showing it to the user",
 	"bs-interwikisearch-login-suggestion": "Most likely you need to log into \"$1\" in order to see the search results. If this is the case, once you are logged in, you will be able to search \"$1\" from here",
 	"bs-interwikisearch-redirect-suggestion": "For more information, visit the target wiki directly, by clicking on the button below",
-	"bs-interwikisearch-error-go-to-target": "Go to $1"
+	"bs-interwikisearch-error-go-to-target": "Go to $1",
+	"bs-interwikisearch-desc": "Search in other wikis"
 }
