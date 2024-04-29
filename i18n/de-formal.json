@@ -3,7 +3,7 @@
 		"authors": []
 	},
 	"bs-interwikisearch-desc": "Suchen Sie in anderen Wiki's",
-	"bs-interwikisearch-results-title-label": "Erste Seite der Ergebnisse auf \"$1\" anzeigen. Um alle Ergebnisse anzuzeigen klicken Sie bitte auf \"Volle suche öffnen\"",
-	"bs-interwikisearch-login-suggestion": "Wahrscheinlich müssen Sie sich auf \"$1\" anmelden, um die Suchergebnisse sehen zu können. Wenn dies der Fall ist, werden Sie nach der Anmeldung von hier \"$1\" suchen können",
-	"bs-interwikisearch-redirect-suggestion": "Für weitere Informationen besuchen Sie direkt das Ziel-Wiki, indem Sie auf den Button unten klicken"
+	"bs-interwikisearch-results-title-label": "Erste Seite der Ergebnisse auf \"$1\" anzeigen. Um alle Ergebnisse anzuzeigen klicken Sie bitte auf \"Volle suche \u00f6ffnen\"",
+	"bs-interwikisearch-login-suggestion": "Wahrscheinlich m\u00fcssen Sie sich auf \"$1\" anmelden, um die Suchergebnisse sehen zu k\u00f6nnen. Wenn dies der Fall ist, werden Sie nach der Anmeldung von hier \"$1\" suchen k\u00f6nnen",
+	"bs-interwikisearch-redirect-suggestion": "F\u00fcr weitere Informationen besuchen Sie direkt das Ziel-Wiki, indem Sie auf den Button unten klicken"
 }
