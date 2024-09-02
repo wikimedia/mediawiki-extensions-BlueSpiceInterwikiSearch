@@ -71,12 +71,21 @@
 	};
 
 	bs.interwiki.search.InterwikiWidget.prototype.searchPublic = function ( config, queryData ) {
-		return $.ajax( {
+		var params = {
 			url: config[ 'api-endpoint' ],
 			jsonp: 'callback',
 			dataType: 'jsonp',
 			data: queryData
-		} );
+		};
+
+		var currentNonce = mw.config.get( 'wgCSPNonce' );
+		if ( currentNonce ) {
+			params.scriptAttrs = {
+				nonce: currentNonce
+			};
+		}
+
+		return $.ajax( params );
 	};
 
 	bs.interwiki.search.InterwikiWidget.prototype.handleResponse = function (
