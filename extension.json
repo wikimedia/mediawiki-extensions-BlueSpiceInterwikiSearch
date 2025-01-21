@@ -1,6 +1,6 @@
 {
 	"name": "BlueSpiceInterwikiSearch",
-	"version": "4.2.0-alpha",
+	"version": "5.0.0",
 	"license-name": "GPL-3.0-only",
 	"author": [
 		"Dejan Savuljesku <savuljesku@hallowelt.com>"
@@ -25,7 +25,7 @@
 		}
 	},
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.43.0"
 	},
 	"MessagesDirs": {
 		"BlueSpiceInterwikiSearch": "i18n"
