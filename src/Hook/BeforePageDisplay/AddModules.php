@@ -4,6 +4,7 @@ namespace BlueSpice\InterwikiSearch\Hook\BeforePageDisplay;
 
 use BlueSpice\Hook\BeforePageDisplay;
 use ConfigException;
+use MediaWiki\Html\Html;
 use MediaWiki\SpecialPage\SpecialPage;
 use MWException;
 
@@ -41,11 +42,11 @@ class AddModules extends BeforePageDisplay {
 		$label = new \OOUI\LabelWidget( [
 			'label' => wfMessage( 'bs-interwikisearch-label' )->plain()
 		] );
-		$itemCnt = \Html::element( 'div', [
+		$itemCnt = Html::element( 'div', [
 			'id' => 'bs-interwiki-search-items'
 		] );
 
-		$html = \Html::openElement( 'div', [
+		$html = Html::openElement( 'div', [
 			'aria-describedby' => 'bs-interwiki-search',
 			'role' => 'navigation',
 			'id' => 'bs-interwiki-search',
@@ -54,7 +55,7 @@ class AddModules extends BeforePageDisplay {
 
 		$html .= $label;
 		$html .= $itemCnt;
-		$html .= \Html::closeElement( 'div' );
+		$html .= Html::closeElement( 'div' );
 
 		$this->out->addHTML( $html );
 
