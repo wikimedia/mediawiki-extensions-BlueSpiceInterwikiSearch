@@ -4,6 +4,7 @@ namespace BlueSpice\InterwikiSearch\Hook\BeforePageDisplay;
 
 use BlueSpice\Hook\BeforePageDisplay;
 use ConfigException;
+use MediaWiki\SpecialPage\SpecialPage;
 use MWException;
 
 class AddModules extends BeforePageDisplay {
@@ -16,7 +17,7 @@ class AddModules extends BeforePageDisplay {
 	protected function skipProcessing() {
 		$title = $this->out->getTitle();
 
-		$spTitle = \SpecialPage::getTitleFor( 'BSSearchCenter' );
+		$spTitle = SpecialPage::getTitleFor( 'BSSearchCenter' );
 		if ( !$spTitle->equals( $title ) ) {
 			return true;
 		}
