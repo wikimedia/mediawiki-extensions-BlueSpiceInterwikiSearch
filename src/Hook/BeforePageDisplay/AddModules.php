@@ -3,7 +3,7 @@
 namespace BlueSpice\InterwikiSearch\Hook\BeforePageDisplay;
 
 use BlueSpice\Hook\BeforePageDisplay;
-use ConfigException;
+use MediaWiki\Config\ConfigException;
 use MediaWiki\Html\Html;
 use MediaWiki\SpecialPage\SpecialPage;
 use MWException;
