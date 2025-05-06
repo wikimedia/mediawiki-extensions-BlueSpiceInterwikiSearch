@@ -1,4 +1,4 @@
-( function ( mw, $, bs, d, undefined ) {
+( function ( mw, bs ) {
 	bs.util.registerNamespace( 'bs.interwiki.search' );
 
 	bs.interwiki.search.InterwikiItemWidget = function ( cfg ) {
@@ -21,7 +21,7 @@
 	OO.inheritClass( bs.interwiki.search.InterwikiItemWidget, OO.ui.ButtonWidget );
 
 	bs.interwiki.search.InterwikiItemWidget.prototype.openResults = function () {
-		var windowManager = OO.ui.getWindowManager(),
+		const windowManager = OO.ui.getWindowManager(),
 			dialog = new bs.interwiki.search.ResultsDialog( {
 				fullURL: this.fullURL,
 				name: this.name,
@@ -38,4 +38,4 @@
 		return mw.message( 'bs-interwikisearch-item-button-label', this.name, this.total ).text();
 	};
 
-}( mediaWiki, jQuery, blueSpice, document ) );
+}( mediaWiki, blueSpice ) );

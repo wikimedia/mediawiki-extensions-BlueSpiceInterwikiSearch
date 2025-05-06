@@ -1,4 +1,4 @@
-( function ( mw, $, bs, d, undefined ) {
+( function ( mw, $, bs ) {
 	bs.interwiki.search.ResultsDialog = function ( cfg ) {
 		cfg = cfg || {};
 
@@ -33,19 +33,19 @@
 	bs.interwiki.search.ResultsDialog.prototype.initialize = function () {
 		bs.interwiki.search.ResultsDialog.super.prototype.initialize.call( this );
 
-		var titleLabel = new OO.ui.LabelWidget( {
+		const titleLabel = new OO.ui.LabelWidget( {
 				label: mw.message( 'bs-interwikisearch-results-title-label', this.name ).text()
 			} ),
 			$title = $( '<div>' )
 				.addClass( 'bs-interwikisearch-results-title' )
 				.append( titleLabel.$element ),
 
-			disposableConfig = $.extend( {}, this.resultsConfig );
+			disposableConfig = Object.assign( {}, this.resultsConfig );
 		disposableConfig.results = this.resultsConfig.caller.applyResultsToStructure(
 			this.resultsConfig.results
 		);
 
-		this.resultsPanel = new bs.extendedSearch.ResultsPanel( $.extend( disposableConfig, {
+		this.resultsPanel = new bs.extendedSearch.ResultsPanel( $.extend( disposableConfig, { // eslint-disable-line no-jquery/no-extend
 			mobile: bs.extendedSearch.utils.isMobile(),
 			externalResults: true
 		} ) );
@@ -61,14 +61,12 @@
 	};
 
 	bs.interwiki.search.ResultsDialog.prototype.getActionProcess = function ( action ) {
-		var me = this;
-
 		if ( action === 'openFull' ) {
-			return new OO.ui.Process( function () {
-				var finalURL = me.fullURL.replace( '$1', me.query );
+			return new OO.ui.Process( () => {
+				const finalURL = this.fullURL.replace( '$1', this.query );
 				window.open( finalURL, '_blank' );
 
-				return me.close( { action: action } );
+				return this.close( { action: action } );
 			} );
 		}
 
@@ -76,4 +74,4 @@
 			this, action
 		);
 	};
-}( mediaWiki, jQuery, blueSpice, document ) );
+}( mediaWiki, jQuery, blueSpice ) );

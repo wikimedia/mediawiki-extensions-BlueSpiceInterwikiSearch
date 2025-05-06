@@ -1,4 +1,4 @@
-( function ( mw, $, bs, d, undefined ) {
+( function ( mw, bs ) {
 	bs.interwiki.search.ErrorDialog = function ( cfg ) {
 		cfg = cfg || {};
 
@@ -40,7 +40,7 @@
 		if ( this.suggestLogin ) {
 			// empty
 		}
-		var goToTargetButton = new OO.ui.ButtonWidget( {
+		const goToTargetButton = new OO.ui.ButtonWidget( {
 			label: mw.message( 'bs-interwikisearch-error-go-to-target', this.name ).text(),
 			flags: [
 				'primary',
@@ -68,4 +68,4 @@
 
 	};
 
-}( mediaWiki, jQuery, blueSpice, document ) );
+}( mediaWiki, blueSpice ) );

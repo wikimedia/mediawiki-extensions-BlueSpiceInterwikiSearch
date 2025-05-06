@@ -1,4 +1,4 @@
-( function ( mw, $, bs, d, undefined ) {
+( function ( mw, $, bs, d ) {
 	bs.util.registerNamespace( 'bs.interwiki.search' );
 
 	bs.interwiki.search.InterwikiWidget = function ( cfg ) {
@@ -22,8 +22,8 @@
 	bs.interwiki.search.InterwikiWidget.prototype.querySources = function ( e, queryData, search ) {
 		this.reset();
 
-		for ( var name in this.sources ) {
-			var sourceConfig = this.sources[ name ];
+		for ( const name in this.sources ) {
+			const sourceConfig = this.sources[ name ];
 			this.executeQuery( sourceConfig, queryData, search );
 		}
 	};
@@ -31,7 +31,7 @@
 	bs.interwiki.search.InterwikiWidget.prototype.executeQuery = function (
 		config, queryData, search
 	) {
-		var request;
+		let request;
 		queryData.format = 'json';
 
 		if ( config.hasOwnProperty( 'public-wiki' ) && config[ 'public-wiki' ] === true ) {
@@ -42,9 +42,9 @@
 			request = this.searchProtected( config, queryData, search );
 		}
 
-		request.done( function ( response ) {
+		request.done( ( response ) => {
 			this.handleResponse( response, config, search, queryData );
-		}.bind( this ) ).fail( function ( code, response ) {
+		} ).fail( ( code, response ) => {
 			if ( response === 'abort' ) {
 				return;
 			}
@@ -52,7 +52,7 @@
 				return;
 			}
 			this.handleError( response, config, queryData );
-		}.bind( this ) );
+		} );
 
 		this.ongoingRequests.push( request );
 	};
@@ -60,7 +60,7 @@
 	bs.interwiki.search.InterwikiWidget.prototype.searchProtected = function (
 		config, queryData
 	) {
-		var api = new mw.ForeignApi( config[ 'api-endpoint' ] );
+		const api = new mw.ForeignApi( config[ 'api-endpoint' ] );
 		return api.get( queryData );
 	};
 
@@ -71,14 +71,14 @@
 	};
 
 	bs.interwiki.search.InterwikiWidget.prototype.searchPublic = function ( config, queryData ) {
-		var params = {
+		const params = {
 			url: config[ 'api-endpoint' ],
 			jsonp: 'callback',
 			dataType: 'jsonp',
 			data: queryData
 		};
 
-		var currentNonce = mw.config.get( 'wgCSPNonce' );
+		const currentNonce = mw.config.get( 'wgCSPNonce' );
 		if ( currentNonce ) {
 			params.scriptAttrs = {
 				nonce: currentNonce
@@ -101,7 +101,7 @@
 			return;
 		}
 
-		var item = new bs.interwiki.search.InterwikiItemWidget( {
+		const item = new bs.interwiki.search.InterwikiItemWidget( {
 			fullURL: config[ 'search-on-wiki-url' ],
 			name: config.name,
 			query: queryData.q,
@@ -122,11 +122,12 @@
 	bs.interwiki.search.InterwikiWidget.prototype.handleError = function (
 		response, config, queryData
 	) {
-		var errorText = '',
-			errorCode = '',
-			// Target-level setting will override the global setting
-			silent = config.hasOwnProperty( 'silent-on-error' ) ?
-				config[ 'silent-on-error' ] : mw.config.get( 'bsgInterwikiSearchSilentOnError' );
+		let errorText = '';
+		let errorCode = '';
+		// Target-level setting will override the global setting
+		const silent = config.hasOwnProperty( 'silent-on-error' ) ?
+			config[ 'silent-on-error' ] :
+			mw.config.get( 'bsgInterwikiSearchSilentOnError' );
 		if ( silent ) {
 			return;
 		}
@@ -138,7 +139,7 @@
 			errorText = response.error.info;
 		}
 
-		var item = new bs.interwiki.search.ErrorInterwikiItemWidget( {
+		const item = new bs.interwiki.search.ErrorInterwikiItemWidget( {
 			errorText: errorText,
 			errorCode: errorCode,
 			fullURL: config[ 'search-on-wiki-url' ],
@@ -159,7 +160,7 @@
 		this.$itemCnt.children().remove();
 		this.$element.hide();
 		this.itemsAdded = 0;
-		for ( var i = 0; i < this.ongoingRequests.length; i++ ) {
+		for ( let i = 0; i < this.ongoingRequests.length; i++ ) {
 			this.ongoingRequests[ i ].abort();
 		}
 		this.ongoingRequests = [];
