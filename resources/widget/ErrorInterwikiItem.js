@@ -1,4 +1,4 @@
-( function ( mw, $, bs, d, undefined ) {
+( function ( bs ) {
 	bs.util.registerNamespace( 'bs.interwiki.search' );
 
 	bs.interwiki.search.ErrorInterwikiItemWidget = function ( cfg ) {
@@ -26,7 +26,7 @@
 
 		this.connect( this, {
 			click: function () {
-				var errorDialog = new bs.interwiki.search.ErrorDialog( {
+				const errorDialog = new bs.interwiki.search.ErrorDialog( {
 						size: 'medium',
 						name: this.name,
 						suggestLogin: this.shouldSuggestLogin(),
@@ -45,4 +45,4 @@
 		// It is not certain that it will resolve it, but its likely
 		return this.errorCode === 'readapidenied';
 	};
-}( mediaWiki, jQuery, blueSpice, document ) );
+}( blueSpice ) );
