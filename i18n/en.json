@@ -8,12 +8,15 @@
 	"bs-interwikisearch-results-dialog-title": "Results",
 	"bs-interwikisearch-results-dialog-button-go-full": "Open full search",
 	"bs-interwikisearch-results-dialog-button-close": "Close",
-	"bs-interwikisearch-results-title-label": "Showing first page of results on \"$1\". To view all results, click on {{int:bs-interwikisearch-results-dialog-button-go-full}}",
 	"bs-interwikisearch-pref-searchinotherwikis": "Enable interwiki search",
 	"bs-interwikisearch-error-generic": "Results cannot be retrieved from \"$1\"",
 	"bs-interwikisearch-error-generic-with-message": "Results cannot be retrieved from \"$1\": $2",
 	"bs-interwikisearch-pref-silentonerror": "Skip over wikis that cannot be accessed or otherwise cannot return results without showing it to the user",
-	"bs-interwikisearch-login-suggestion": "Most likely you need to log into \"$1\" in order to see the search results. If this is the case, once you are logged in, you will be able to search \"$1\" from here",
-	"bs-interwikisearch-redirect-suggestion": "For more information, visit the target wiki directly, by clicking on the button below",
-	"bs-interwikisearch-error-go-to-target": "Go to $1"
+	"bs-interwikisearch-error-open-target-action": "Switch to $1",
+	"bs-interwikisearch-error-open-login-action": "Log in to $1",
+	"bs-interwikisearch-error-generic-dlg-title": "Search failed",
+	"bs-interwikisearch-error-login-dlg-title": "Login required",
+	"bs-interwikisearch-login-suggestion-label": "The search in \"$1\" has currently returned no results.\n You may not be logged in to \"$1\". After logging in, you can search again here.",
+	"bs-interwikisearch-redirect-suggestion-label": "For more information please visit the target wiki.",
+	"bs-interwikisearch-results-desc-label": "The first results from \"$1\" are displayed. For the complete list: \"{{int:bs-interwikisearch-results-dialog-button-go-full}}\""
 }

@@ -59,12 +59,16 @@
 				"bs-interwikisearch-results-dialog-title",
 				"bs-interwikisearch-results-dialog-button-go-full",
 				"bs-interwikisearch-results-dialog-button-close",
-				"bs-interwikisearch-results-title-label",
+				"bs-interwikisearch-results-desc-label",
 				"bs-interwikisearch-error-generic",
 				"bs-interwikisearch-error-generic-with-message",
-				"bs-interwikisearch-login-suggestion",
-				"bs-interwikisearch-error-go-to-target",
-				"bs-interwikisearch-redirect-suggestion"
+				"bs-interwikisearch-error-open-target-action",
+				"bs-interwikisearch-error-open-login-action",
+				"bs-interwikisearch-error-generic-dlg-title",
+				"bs-interwikisearch-error-login-dlg-title",
+				"bs-interwikisearch-login-suggestion-label",
+				"bs-interwikisearch-redirect-suggestion-label",
+				"cancel"
 			]
 		}
 	},

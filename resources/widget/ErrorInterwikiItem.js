@@ -29,6 +29,7 @@
 				const errorDialog = new bs.interwiki.search.ErrorDialog( {
 						size: 'medium',
 						name: this.name,
+						error: this.errorCode,
 						suggestLogin: this.shouldSuggestLogin(),
 						targetURL: this.fullURL.replace( '$1', this.query )
 					} ),
