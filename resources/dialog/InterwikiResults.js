@@ -20,7 +20,7 @@
 		{
 			action: 'openFull',
 			label: mw.message( 'bs-interwikisearch-results-dialog-button-go-full' ).text(),
-			flags: 'primary',
+			flags: [ 'primary', 'progressive' ],
 			disabled: false
 		},
 		{
@@ -33,8 +33,10 @@
 	bs.interwiki.search.ResultsDialog.prototype.initialize = function () {
 		bs.interwiki.search.ResultsDialog.super.prototype.initialize.call( this );
 
+		this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
+
 		const titleLabel = new OO.ui.LabelWidget( {
-				label: mw.message( 'bs-interwikisearch-results-title-label', this.name ).text()
+				label: mw.message( 'bs-interwikisearch-results-desc-label', this.name ).text()
 			} ),
 			$title = $( '<div>' )
 				.addClass( 'bs-interwikisearch-results-title' )
@@ -53,7 +55,8 @@
 		this.resultsPanel.$element.find( '.bs-extendedsearch-loadmore' ).remove();
 		this.resultsPanel.$element.find( '.bs-extendedsearch-result-relevance-cnt' ).remove();
 
-		this.$body.append( $title, this.resultsPanel.$element );
+		this.content.$element.append( $title, this.resultsPanel.$element );
+		this.$body.append( this.content.$element );
 	};
 
 	bs.interwiki.search.ResultsDialog.prototype.getBodyHeight = function () {
