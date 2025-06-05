@@ -3,17 +3,14 @@
 namespace BlueSpice\InterwikiSearch\Hook\BeforePageDisplay;
 
 use BlueSpice\Hook\BeforePageDisplay;
-use MediaWiki\Config\ConfigException;
+use InvalidArgumentException;
 use MediaWiki\Html\Html;
 use MediaWiki\SpecialPage\SpecialPage;
-use MWException;
 
 class AddModules extends BeforePageDisplay {
 
 	/**
 	 * @return bool
-	 * @throws ConfigException
-	 * @throws MWException
 	 */
 	protected function skipProcessing() {
 		$title = $this->out->getTitle();
@@ -30,10 +27,6 @@ class AddModules extends BeforePageDisplay {
 		return false;
 	}
 
-	/**
-	 * @throws ConfigException
-	 * @throws MWException
-	 */
 	protected function doProcess() {
 		$this->out->addModules( 'ext.blueSpiceInterwikiSearch' );
 
@@ -71,8 +64,6 @@ class AddModules extends BeforePageDisplay {
 	 * Validate and normalize source configuration
 	 *
 	 * @return array
-	 * @throws MWException
-	 * @throws ConfigException
 	 */
 	private function parseSources() {
 		$raw = $this->getConfig()->get( 'InterwikiSearchSources' );
@@ -111,7 +102,6 @@ class AddModules extends BeforePageDisplay {
 	 * @param string $base
 	 * @param string $key
 	 * @return array
-	 * @throws MWException
 	 */
 	private function getConfigFromBase( $base, $key ) {
 		$base = rtrim( $base, '/' );
@@ -126,7 +116,7 @@ class AddModules extends BeforePageDisplay {
 	 * @param array $config
 	 * @param string $key
 	 * @return bool
-	 * @throws MWException
+	 * @throws InvalidArgumentException
 	 */
 	private function verifyConfig( array $config, $key ) {
 		if (
@@ -137,7 +127,7 @@ class AddModules extends BeforePageDisplay {
 			return true;
 		}
 
-		throw new MWException(
+		throw new InvalidArgumentException(
 			"BlueSpiceInterwikiSearch: Configuration for target $key is invalid"
 		);
 	}
