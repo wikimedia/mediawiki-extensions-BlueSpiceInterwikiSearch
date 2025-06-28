@@ -31,8 +31,10 @@
 		"BlueSpiceInterwikiSearch": "i18n"
 	},
 	"AutoloadNamespaces": {
-		"BlueSpice\\InterwikiSearch\\": "src/",
-		"BlueSpice\\InterwikiSearch\\Tests\\": "tests/phpunit"
+		"BlueSpice\\InterwikiSearch\\": "src/"
+	},
+	"TestAutoloadNamespaces": {
+		"BlueSpice\\InterwikiSearch\\Tests\\": "tests/phpunit/"
 	},
 	"ResourceModules": {
 		"ext.blueSpiceInterwikiSearch": {
